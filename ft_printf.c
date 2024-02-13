@@ -6,18 +6,46 @@
 /*   By: apaterno <apaterno@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 17:11:07 by apaterno          #+#    #+#             */
-/*   Updated: 2024/02/08 12:15:13 by apaterno         ###   ########.fr       */
+/*   Updated: 2024/02/13 13:00:01 by apaterno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h" 
+
+int ft_printop(char o, va_list vargs)
+{
+    int len;
+
+    len = 0;
+    if (o == 's')
+        len = ft_putstr(va_arg(vargs, char*));
+    else if (o == 'c')
+        len =ft_putchar(va_arg(vargs, int));
+    else if (o == 'p')
+        len = ft_ppointer(va_arg(vargs,void*));
+    else if (o == 'd')
+        len = ft_itoa(va_arg(vargs,int));
+    else if (o == 'i')
+        len = ft_itoa(va_arg(vargs,int));
+    else if (o == 'u')
+        len = ft_itoa(va_arg(vargs,unsigned int));
+    else if (o == 'x')
+        len = ft_itoa_hex(va_arg(vargs,unsigned int),o);
+    else if (o == 'X')
+        len = ft_itoa_hex(va_arg(vargs,unsigned int),o);
+    else if (o == '%')
+        len = ft_putchar('%');
+    return (len);
+}
+
+
+
 
 int	ft_printf(char const *s, ...)
 {
 	int		i;
 	va_list	vargs;
 	int len;
-	int check;
 
 	i = 0;
 	len =0;
@@ -26,11 +54,9 @@ int	ft_printf(char const *s, ...)
 	{	
 		if (s[i] == '%')
 		{			
-			check = ft_printop(s[i+1],vargs);	
-			if (check == -1)
-				return (i);
-			len +=check;
-			i += 2;
+			i++;
+			len += ft_printop(s[i],vargs);	
+			i++;
 		}
 		else 
 			len += write(1,&s[i++],1);				

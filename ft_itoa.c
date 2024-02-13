@@ -10,7 +10,7 @@ int ft_itoa (long nb)
 		len += ft_putchar('-');
 		nb *= -1;
 	}	
-	if(nb > 10)
+	if(nb >= 10)
 		len += ft_itoa(nb/10);
 	len += ft_putchar((nb % 10) + 48);
 	return (len);
