@@ -1,19 +1,23 @@
 #include "libftprintf.h"
 
-int ft_itoa_hex(unsigned int nb, char t)
+int ft_itoa_hex(unsigned int nb, char *simbol)
 {
-	char *simbol;
 	int len;
-	int pos;
+	int i;
+	char str[25];
 
-	simbol = "0123456789ABCDEF";
 	len = 0;
-	if (nb > 16)
-		len += ft_itoa_hex(nb/16,t);
-	pos = nb % 16;
-   	if ( t == 'X')	
-		len += ft_putchar(simbol[pos]);
-	else
-		len += ft_putchar(ft_tolower(simbol[pos]));
+	i = 0;
+	while (nb > 0)
+	{
+		str[i++] = simbol[nb % 16];
+		nb /= 16;
+	}
+	while (i > 0)
+	{
+		if (ft_putchar(str[--i]) == -1)
+			return -1;
+		len++;
+	}
 	return (len);
 }

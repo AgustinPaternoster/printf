@@ -11,9 +11,7 @@ int main(int arc , char ** argv)
 	//char *p = "character:%c text:%s pointer:%p integer:%d hex:%x hex:%X %%";
 	//char *p = "pointer:%p";
 	//char *text = "test";
-	int i = 15656;
-    //char *p = "xxxxxxx";
-    ft_ppointer(&i);
-   
+    char *p = "xxxxxxx";
+    printf("%d",ft_ppointer(p,HEX_MIN));
 	return 0;
 }

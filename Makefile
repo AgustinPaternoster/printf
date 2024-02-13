@@ -6,7 +6,6 @@ CFILES = ft_printf.c\
 		 ft_putchar.c\
 		 ft_itoa.c\
 		 ft_itoa_hex.c\
-		 ft_tolower.c\
 		 ft_ppointer.c
 
 FLAGS = -Wall -Werror -Wextra

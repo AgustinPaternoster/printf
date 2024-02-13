@@ -22,7 +22,7 @@ int ft_printop(char o, va_list vargs)
     else if (o == 'c')
         len =ft_putchar(va_arg(vargs, int));
     else if (o == 'p')
-        len = ft_ppointer(va_arg(vargs,void*));
+        len = 0;
     else if (o == 'd')
         len = ft_itoa(va_arg(vargs,int));
     else if (o == 'i')
@@ -30,9 +30,9 @@ int ft_printop(char o, va_list vargs)
     else if (o == 'u')
         len = ft_itoa(va_arg(vargs,unsigned int));
     else if (o == 'x')
-        len = ft_itoa_hex(va_arg(vargs,unsigned int),o);
+        len = ft_itoa_hex(va_arg(vargs,unsigned int),HEX_MIN);
     else if (o == 'X')
-        len = ft_itoa_hex(va_arg(vargs,unsigned int),o);
+        len = ft_itoa_hex(va_arg(vargs,unsigned int),HEX_MAY); 
     else if (o == '%')
         len = ft_putchar('%');
     return (len);
