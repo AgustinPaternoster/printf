@@ -1,4 +1,3 @@
-
 #include "printf.h"
 
 int	ft_putstr(char *s)
@@ -8,7 +7,7 @@ int	ft_putstr(char *s)
 	i = 0;
 	while (s[i])
 	{
-		if(write(1, &s[i], 1) == -1)
+		if (write(1, &s[i], 1) == -1)
 			return (-1);
 		i++;
 	}

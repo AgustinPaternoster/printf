@@ -1,10 +1,10 @@
 #include "printf.h"
 
-int ft_itoa_hex(unsigned int nb, char *simbol)
+int	ft_itoa_hex(unsigned int nb, char *simbol)
 {
-	int len;
-	int i;
-	char str[25];
+	int		len;
+	int		i;
+	char	str[25];
 
 	len = 0;
 	i = 0;
@@ -16,7 +16,7 @@ int ft_itoa_hex(unsigned int nb, char *simbol)
 	while (i > 0)
 	{
 		if (ft_putchar(str[--i]) == -1)
-			return -1;
+			return (-1);
 		len++;
 	}
 	return (len);

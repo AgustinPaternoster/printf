@@ -7,15 +7,15 @@ CFILES = ft_printf.c\
 		 ft_itoa_hex.c\
 		 ft_ppointer.c
 
-COBJECTS =$(CFILES:%.c=%.o)
+COBJECTS = $(CFILES:%.c=%.o)
 FLAGS = -Wall -Werror -Wextra
 
 NAME = libftprintf.a
 
-%.o : %.c 
-		$(CC) $(FLAGS) -c $^  -o $@ 
+%.o : %.c $(HEADER) Makefile
+		$(CC) $(FLAGS) -c $<  -o $@ 
 
-$(NAME) : $(OFILES) 
+$(NAME) : $(COBJECTS) 
 		ar -r $@ $^
 
 all : $(NAME)
@@ -23,7 +23,7 @@ all : $(NAME)
 clean:
 		rm -r $(COBJECTS)
 
-flclean: clean
-		rm libftprintf.a
+fclean: clean
+		rm $(NAME)
 
-re:
+re: fclean all
