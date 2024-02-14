@@ -1,5 +1,4 @@
-#include "libftprintf.h"
-#include <stdio.h>
+#include "printf.h"
 
 int ft_ppointer(void *p, char *simbol)
 {

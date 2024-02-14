@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h" 
+#include "printf.h" 
 
 int ft_printop(char o, va_list vargs)
 {
@@ -22,7 +22,7 @@ int ft_printop(char o, va_list vargs)
     else if (o == 'c')
         len =ft_putchar(va_arg(vargs, int));
     else if (o == 'p')
-        len = 0;
+        len = ft_ppointer(va_arg(vargs, void*), HEX_MIN);
     else if (o == 'd')
         len = ft_itoa(va_arg(vargs,int));
     else if (o == 'i')
@@ -37,9 +37,6 @@ int ft_printop(char o, va_list vargs)
         len = ft_putchar('%');
     return (len);
 }
-
-
-
 
 int	ft_printf(char const *s, ...)
 {

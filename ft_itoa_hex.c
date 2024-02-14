@@ -1,4 +1,4 @@
-#include "libftprintf.h"
+#include "printf.h"
 
 int ft_itoa_hex(unsigned int nb, char *simbol)
 {
