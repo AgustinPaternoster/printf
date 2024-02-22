@@ -1,16 +1,13 @@
-
-#include "printf.h"
+#include "ft_printf.h"
 #include <stdio.h>
-#include <limits.h>
-#include <stdlib.h>
 
-int main(int arc , char ** argv)
+int main(void)
 {
-	(void)arc;
-	(void)argv;
-	// char *p = "integer:%i uns:%u hex:%X %";
-	// char *text = "test";
-	int i = -15852;
-	ft_printf("res:%z",i);
-	return 0;
+    int *p = NULL;
+	char *str = "test";
+	
+    printf("r:%d\n",printf("p:%s c:%c p:%p pp:%p d:%d i:%i u:%u x:%x X:%X y:%%\n",str , 52 , p , &str[0]  , INT_MAX , INT_MIN , 123456 , 34567890, 34567890));
+    ft_printf("r:%d\n",ft_printf("p:%s c:%c p:%p pp:%p d:%d i:%i u:%u x:%x X:%X y:%%\n",str , 52 , p ,&str[0] , INT_MAX , INT_MIN , 123456 , 34567890, 34567890));
+	
+    return 0;
 }

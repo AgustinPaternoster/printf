@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apaterno <apaterno@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 17:14:39 by apaterno          #+#    #+#             */
-/*   Updated: 2024/02/13 12:59:15 by apaterno         ###   ########.fr       */
+/*   Created: 2024/02/15 10:47:26 by apaterno          #+#    #+#             */
+/*   Updated: 2024/02/19 10:35:22 by apaterno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 # include <unistd.h>
 # include <stdarg.h>
+# include <limits.h>
 
 # define HEX_MAY "0123456789ABCDEF"
 # define HEX_MIN "0123456789abcdef"

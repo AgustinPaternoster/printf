@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: apaterno <apaterno@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 17:11:07 by apaterno          #+#    #+#             */
-/*   Updated: 2024/02/13 13:00:01 by apaterno         ###   ########.fr       */
+/*   Created: 2024/02/15 10:03:47 by apaterno          #+#    #+#             */
+/*   Updated: 2024/02/19 13:19:33 by apaterno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h" 
+#include "ft_printf.h"
 
 int	ft_printop(char o, va_list vargs)
 {
@@ -43,12 +43,14 @@ int	ft_printf(char const *s, ...)
 	int		i;
 	va_list	vargs;
 	int		len;
+	int		check;
 
 	i = 0;
 	len = 0;
 	va_start(vargs, s);
 	while (s[i])
 	{
+		check = len;
 		if (s[i] == '%')
 		{
 			i++;
@@ -57,6 +59,8 @@ int	ft_printf(char const *s, ...)
 		}
 		else
 			len += write(1, &s[i++], 1);
+		if (check + len < check)
+			return (-1);
 	}
 	va_end(vargs);
 	return (len);

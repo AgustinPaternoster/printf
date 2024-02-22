@@ -1,4 +1,16 @@
-#include "printf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_ppointer.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apaterno <apaterno@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/15 10:05:43 by apaterno          #+#    #+#             */
+/*   Updated: 2024/02/19 13:16:35 by apaterno         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
 
 int	ft_ppointer(void *p, char *simbol)
 {
@@ -10,7 +22,11 @@ int	ft_ppointer(void *p, char *simbol)
 	nb = (unsigned long)p;
 	len = 0;
 	i = 0;
-	len += write(1, "0x", 2);
+	if (nb == 0)
+		return (ft_putstr("0x0"));
+	if (ft_putstr("0x") == -1)
+		return (-1);
+	len += 2;
 	while (nb > 0)
 	{
 		str[i++] = simbol[nb % 16];

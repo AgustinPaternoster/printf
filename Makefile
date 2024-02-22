@@ -1,4 +1,4 @@
-HEADER = printf.h
+HEADER = ft_printf.h
 CC = gcc
 CFILES = ft_printf.c\
 		 ft_putstr.c\
@@ -16,14 +16,14 @@ NAME = libftprintf.a
 		$(CC) $(FLAGS) -c $<  -o $@ 
 
 $(NAME) : $(COBJECTS) 
-		ar -r $@ $^
+		ar -crs $@ $^
 
 all : $(NAME)
 
 clean:
-		rm -r $(COBJECTS)
+		rm -f $(COBJECTS)
 
 fclean: clean
-		rm $(NAME)
+		rm -f $(NAME)
 
 re: fclean all
