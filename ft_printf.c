@@ -56,7 +56,7 @@ int	ft_printf(char const *s, ...)
 		if (s[i] == '%')
 		{
 			i++;
-			len +=ft_printop(s[i], vargs, &i);
+			len += ft_printop(s[i], vargs, &i);
 			i++;
 		}
 		else
